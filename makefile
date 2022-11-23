@@ -1,6 +1,6 @@
-OBJECTS = comp.c libRead.c
+OBJECTS = comp.c libAux.c
 
-all: ${OBJECTS} libRead.h
+all: ${OBJECTS} libAux.h
 	gcc ${OBJECTS} -o bf
 
 gen: gen.c

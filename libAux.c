@@ -1,4 +1,4 @@
-#include "libRead.h"
+#include "libAux.h"
 
 int getSize(FILE* file){
     char c = fgetc(file);
@@ -33,4 +33,22 @@ void push(pilha_t* pilha, int value){
 int pop(pilha_t* pilha){
     pilha->topo--;
     return pilha->vetor[pilha->topo];
+}
+
+int validProgram(char* string, int tam){
+    pilha_t* p = criaPilha(tam);
+    
+    for(int i=0; i<tam; i++){
+        if(string[i] == '['){
+            push(p, 1);
+        }
+        else if(string[i] == ']')
+            pop(p);
+    }
+    int k = p->topo;
+    destroiPilha(p);
+
+    if(k != 0)
+        return 1;
+    return 0;
 }

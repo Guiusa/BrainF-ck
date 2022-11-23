@@ -8,7 +8,7 @@
 	]	ends a loop (just if the current cell is 0)
 */
 
-#include "libRead.h"
+#include "libAux.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,6 +47,16 @@ int main(int argc, char** argv) {
 
 	char* program = malloc((pSize+1) * sizeof(char));
 	fgets(program, pSize+1, file);
+
+	if(validProgram(program, pSize)){
+		printf("ERROR: your program has invalid loop statements\n");
+		free(program);
+		fclose(file);
+		system("rm arch");
+		free(fita);
+		return 1;
+	}
+
 
 	pilha_t* pilha = criaPilha(pSize/2);
 

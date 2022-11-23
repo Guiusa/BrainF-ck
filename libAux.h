@@ -6,6 +6,8 @@ struct pilha{
 };
 typedef struct pilha pilha_t;
 
+int validProgram(char* string, int tam);
+
 int getSize(FILE* file);
 
 pilha_t* criaPilha(int max);
