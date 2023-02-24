@@ -103,6 +103,11 @@ int main(int argc, char** argv) {
 				break;
 
 				case '[':
+					if(fita[index] == 0){
+						while(program[i] != ']')
+							i++;
+						break;
+					}
 					push(pilha, i);
 				break;
 
